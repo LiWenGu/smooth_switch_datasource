@@ -1,0 +1,31 @@
+### 没有事务，没有线程切换，库切换表现正常
+GET http://localhost:8080/test/create
+Accept: */*
+Cache-Control: no-cache
+
+### 有事务，没有线程切换，库切换异常，并且异常后，第一个正常库是正常回滚的
+GET http://localhost:8080/test/createWithTransaction
+Accept: */*
+Cache-Control: no-cache
+
+### GET request with a header
+GET http://localhost:8080/test/select
+Accept: */*
+Cache-Control: no-cache
+
+### GET request with a header
+GET http://localhost:8080/test/selectWithTransaction
+Accept: */*
+Cache-Control: no-cache
+
+### 有事务，没有线程切换，但是第二库使用了 `@Transactional(propagation = Propagation.REQUIRES_NEW)`，因此可以切换库成功
+### 但是因为挂起原事务，新起一个事务，当报错时，只有第一个库的操作会被回滚
+GET http://localhost:8080/test/selectWithTransaction2
+Accept: */*
+Cache-Control: no-cache
+
+### 没事务，有线程切换，根据线程本地变量不同表现不同的结果
+GET http://localhost:8080/test/selectWithThread
+Accept: */*
+Cache-Control: no-cache
+

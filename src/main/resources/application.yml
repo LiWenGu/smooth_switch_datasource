@@ -1,0 +1,47 @@
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+spring:
+  datasource:
+    master:
+      name: A
+      url:
+      username:
+      password:
+      driver-class-name: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 10
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      # 单位毫秒
+      minEvictableIdleTimeMillis: 300000
+      keepAlive: true
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      asyncInit: true
+    read:
+      name: B
+      url:
+      username:
+      password:
+      driver-class-name: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 10
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      # 单位毫秒
+      minEvictableIdleTimeMillis: 300000
+      keepAlive: true
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      asyncInit: true
