@@ -11,6 +11,12 @@
     <name>smooth_switch_datasource</name>
     <description>平滑切库的测试项目，对应文档解析：https://www.yuque.com/liwenguang/ogxvf1/ny150b</description>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
